@@ -2,34 +2,40 @@ $(() => {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var down = false;
-  var dc = [];
+  var positions = [];
   var socket = io();
-  $('canvas').on('mousedown', (event) => {
+  ctx.lineWidth = 5;
+  $(window).on('mousedown', (event) => {
     down = true;
-    dc = [event.clientX, event.clientY];
+    positions.push([event.clientX, event.clientY]);
   });
-  $('canvas').on('mouseup', (event) => {
+  $(window).on('mouseup', (event) => {
     down = false;
-    dc = [];
+    positions = [];
   });
   $('canvas').on('mousemove', (event) => {
     if (down) {
-      ctx.fillStyle = 'black';
-      ctx.fillRect(event.clientX,event.clientY,5,5);
-      sender(event.clientX,event.clientY);
+      positions.push([event.clientX, event.clientY])
+      ctx.beginPath();
+      ctx.moveTo(positions[positions.length - 2][0], positions[positions.length - 2][1]);
+      ctx.lineTo(positions[positions.length - 1][0], positions[positions.length - 1][1]);
+      ctx.stroke();
+      sender(positions);
     }
   });
   socket.on('draw', (arr) => {
-    receiver(arr[0], arr[1]);
+    receiver(arr);
   });
 
 
-  function sender(x,y) {
-    socket.emit('draw', [x,y]);
+  function sender(arr) {
+    socket.emit('draw', positions);
   }
 
-  function receiver(x,y) {
-    ctx.fillStyle = 'black';
-    ctx.fillRect(x,y,5,5);
+  function receiver(arr) {
+    ctx.beginPath();
+    ctx.moveTo(arr[arr.length - 2][0], arr[arr.length - 2][1]);
+    ctx.lineTo(arr[arr.length - 1][0], arr[arr.length - 1][1]);
+    ctx.stroke();
   }
 });
