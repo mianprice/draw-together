@@ -11,10 +11,7 @@ canvas {
   float: left;
 }
 
-button:first-of-type {
+#custom-color {
   clear: both;
-}
-
-button {
   float: left;
 }
