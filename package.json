@@ -1,0 +1,15 @@
+{
+  "name": "draw-together",
+  "version": "1.0.0",
+  "description": "communal drawing site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Price and James Marion",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
