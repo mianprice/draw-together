@@ -7,6 +7,8 @@ $(() => {
   var down = false;
   var positions = [];
   var socket = io();
+  var cursor = "brush";
+  ctx.lineCap = 'round';
   ctx.lineWidth = 1;
   ctx.strokeStyle = 'black';
   // ctx.lineJoin = 'round';
@@ -29,10 +31,20 @@ $(() => {
     }
   });
   $('#custom-color').on('change', (event) => {
-    ctx.strokeStyle = $('#custom-color').spectrum("get").toHexString();
+    if (cursor === "brush") {
+      ctx.strokeStyle = $('#custom-color').spectrum("get").toHexString();
+    }
   });
   $('#custom-width').on('change', (event) => {
     ctx.lineWidth = $('#custom-width').val();
+  });
+  $('#cursor-type input').on('click', (event) => {
+    cursor = $(event.target).val();
+    if (cursor === "eraser") {
+      ctx.strokeStyle = $('canvas').css('background-color');
+    } else {
+      ctx.strokeStyle = $('#custom-color').spectrum("get").toHexString();
+    }
   });
   socket.on('draw', (arr, color, width) => {
     receiver(arr, color, width);

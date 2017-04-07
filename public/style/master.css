@@ -9,6 +9,12 @@ body {
 canvas {
   border: thin solid black;
   float: left;
+  cursor: cell;
+  background-color: white;
+}
+
+canvas:active {
+  cursor: crosshair;
 }
 
 #custom-color {
