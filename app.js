@@ -14,9 +14,8 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log(`[Socket ID: ${socket.id}] has disconnected.`);
   });
-  socket.on('draw', (arr) => {
-    console.log(`x: ${arr[0]} || y: ${arr[1]}`);
-    socket.broadcast.emit('draw', arr);
+  socket.on('draw', (arr, color) => {
+    socket.broadcast.emit('draw', arr, color);
   });
 });
 

@@ -8,4 +8,13 @@ body {
 
 canvas {
   border: thin solid black;
+  float: left;
+}
+
+button:first-of-type {
+  clear: both;
+}
+
+button {
+  float: left;
 }
