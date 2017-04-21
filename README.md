@@ -1,5 +1,5 @@
 # [Draw Together](http://draw-together.ianprice.co)
-![Demo 1](./public/assets/draw_together_screenshot.jpg?raw=true "Demo 1")
+![Demo 1](./draw_together_screenshot.jpg?raw=true "Demo 1")
 
 ## Introduction
 [Draw Together](http://draw-together.ianprice.co) allows users to doodle collaboratively within their browser using point and click controls.
@@ -17,7 +17,7 @@
 
 ## Functionalities
 1. You can draw and erase the canvas with control over the color and the brush width.
-![Demo 2](./public/assets/draw_together_exapmle.jpg?raw=true "Demo 2")
+![Demo 2](./draw_together_example.jpg?raw=true "Demo 2")
 
 2. Socket.IO is used to handled standardized actions and data sent between clients. It also handles recording historical actions and sending those records to newly connected clients.
-![Demo 3](./public/assets/draw_together_dual.jpg?raw=true "Demo 3")
+![Demo 3](./draw_together_dual.jpg?raw=true "Demo 3")
