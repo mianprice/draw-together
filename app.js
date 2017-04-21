@@ -26,6 +26,9 @@ io.on('connection', (socket) => {
       "brush_color": color,
       "brush_width": width
     });
+    if (collection.length > 100) {
+      collection.shift();
+    }
     socket.broadcast.emit('draw', arr, color, width);
   });
 });
