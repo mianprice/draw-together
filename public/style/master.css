@@ -1,23 +1,113 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: lightblue;
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
 }
-
+.emph {
+  font-family: Roboto Slab, serif;
+}
 canvas {
-  border: thin solid black;
-  float: left;
+  width: 100vw;
+  height: 100vh;
   cursor: cell;
-  background-color: white;
+  overflow:hidden;
 }
-
 canvas:active {
   cursor: crosshair;
 }
 
-#custom-color {
-  clear: both;
+#control-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 10vh 80vh 10vh;
+}
+.above {
+  z-index: 5;
+}
+#header {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: black;
+  display: flex;
+  flex-wrap: nowrap;
+}
+/* footer should slide out from bottom on menu click in header */
+/*#footer {
+  grid-column: 1;
+  grid-row: 3;
+  background-color: black;
+  display: flex;
+  flex-wrap: nowrap;
+}*/
+.control {
+  background-color: rgb(0,0,0);
+}
+.control > i {
   float: left;
+  padding-top: 1vh;
+  line-height:4vmin;
+  font-size: 4vmin;
+  width: 100%;
+  color: rgb(255,255,255);
+}
+.info {
+  background-color: rgb(200,200,200);
+  font-size:3vh;
+  line-height:3vh;
+  padding: 2vh;
+}
+.title {
+  flex-grow: 1;
+  background-color: rgb(146,186,225);
+  font-size:6vh;
+  line-height: 6vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  text-align: center;
+  text-transform: lowercase;
+}
+#cursor-type > i {
+  line-height:5vmin;
+  font-size: 5vmin;
+  color: rgb(0,0,0);
+  border-color: rgb(255,255,255);
+  background-color: rgb(255,255,255);
+  margin: 1vmin;
+  padding: 1vmin;
+  border: 0.5vmin transparent solid;
+  border-radius: 50%;
+}
+#cursor-type > i.current {
+  background-color: rgb(146,186,225);
+}
+#cursor-type > i:hover {
+  border-color: rgb(146,186,225);
+}
+#custom-color {
+  clear: left;
+  float: left;
+  margin: 1.25vh;
+  height: 2.5vh;
+  padding: 0;
+  width: 10vh;
+}
+#custom-width {
+  text-align: center;
+  font-size: 6vh;
+  height: 8vh;
+  margin: 1vh;
+  border: none;
+  width: 15vmin;
+}
+#menu {
+  line-height: 3vh;
+  font-size: 3vh;
+  padding: 3.5vh 2vh;
+  text-transform: uppercase;
 }

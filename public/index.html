@@ -3,20 +3,44 @@
   <head>
     <meta charset="utf-8">
     <title>Draw Together</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400" rel="stylesheet">
+    <script src="https://use.fontawesome.com/655ea5aa51.js"></script>
     <link rel="stylesheet" href="/style/master.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='/scripts/spectrum.js'></script>
-    <link rel='stylesheet' href='/style/spectrum.css'>
     <script type="text/javascript" src="/scripts/main.js"></script>
   </head>
   <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <input type='text' id="custom-color">
-    <input type="text" id="custom-width" value="1">
-    <form id="cursor-type">
-      <input type="radio" name="cursor" value="brush" checked="true"> Brush<br>
-      <input type="radio" name="cursor" value="eraser"> Eraser<br>
-    </form>
+    <canvas id="canvas"></canvas>
+    <div id="control-layer">
+      <div id="header" class="controls above">
+        <div class="title emph">Draw Together</div>
+        <div class="info">Color<br>Picker</div>
+        <div class="control">
+          <i class="fa fa-fw fa-tint"></i>
+          <input type="color" name="color" id="custom-color">
+        </div>
+        <div class="info">Brush<br>Width</div>
+        <div class="control">
+          <input type="textarea" id="custom-width" value="5" rows="1" cols="3" maxlength="3">
+        </div>
+        <div class="control">
+          <div id="cursor-type">
+            <i id="brush" class="fa fa-fw fa-paint-brush current"></i>
+            <i id="eraser" class="fa fa-fw fa-eraser"></i>
+          </div>
+        </div>
+        <div id="menu" class="info"><i class="fa fa-fw fa-navicon"></i></div>
+      </div>
+      <!-- <div id="footer" class="controls above">
+        <div class="control"><div id="notices">adksaldj</div></div>
+        <div class="info">adksaldj</div>
+        <div class="control"><div id="users">adksaldj</div></div>
+        <div class="info">adksaldj</div>
+        <div class="control"><div id="you">adksaldj</div></div>
+        <div class="info">adksaldj</div>
+        <div class="control"><div id="rooms" class="">adksaldj</div></div>
+      </div> -->
+    </div>
   </body>
 </html>
