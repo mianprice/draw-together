@@ -30,6 +30,6 @@ io.on('connection', (socket) => {
   });
 });
 
-http.listen(3000, () => {
+http.listen(9002, () => {
   console.log('Started up.');
 });
