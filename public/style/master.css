@@ -37,14 +37,6 @@ canvas:active {
   display: flex;
   flex-wrap: nowrap;
 }
-/* footer should slide out from bottom on menu click in header */
-/*#footer {
-  grid-column: 1;
-  grid-row: 3;
-  background-color: black;
-  display: flex;
-  flex-wrap: nowrap;
-}*/
 .control {
   background-color: rgb(0,0,0);
 }
